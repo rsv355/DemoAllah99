@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.twotoasters.jazzylistview.JazzyListView;
 import com.twotoasters.jazzylistview.effects.CurlEffect;
@@ -83,7 +84,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void openSettings() {
-
         View menuSettings = findViewById(R.id.action_settings); // SAME ID AS MENU ID
 
         String[] names = {"Settings","Rate Us on Play Store","Join Us on Facebook","Share this App with Friends","Disclaimers","About Us","Feedback","Logout"};
