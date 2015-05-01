@@ -3,6 +3,7 @@ package android.krishna.com.allah99;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,11 +17,21 @@ import com.twotoasters.jazzylistview.effects.CurlEffect;
 public class SubActivity extends ActionBarActivity {
 
     private ImageView left,right,playAudio;
-
+    private String[] names1 = {"My Recipes", "Profiles", "Add Recipe"};
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_main);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle("HOME");
+//            toolbar.setLogo(R.drawable.logo);
+            setSupportActionBar(toolbar);
+        }
+        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+
 
         left = (ImageView)findViewById(R.id.left);
         right = (ImageView)findViewById(R.id.right);

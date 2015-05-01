@@ -3,11 +3,14 @@ package android.krishna.com.allah99;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ListPopupWindow;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 
 import com.twotoasters.jazzylistview.JazzyListView;
 import com.twotoasters.jazzylistview.effects.CurlEffect;
@@ -15,13 +18,28 @@ import com.twotoasters.jazzylistview.effects.FadeEffect;
 import com.twotoasters.jazzylistview.effects.SlideInEffect;
 import com.twotoasters.jazzylistview.recyclerview.JazzyRecyclerViewScrollListener;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class MainActivity extends ActionBarActivity {
-
+    private ImageView left,right,playAudio;
+    private String[] names1 = {"My Recipes", "Profiles", "Add Recipe"};
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle("HOME");
+//            toolbar.setLogo(R.drawable.logo);
+            setSupportActionBar(toolbar);
+        }
+        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+
+
 
         JazzyListView list = (JazzyListView) findViewById(R.id.list);
 
@@ -56,11 +74,35 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.action_settings:
+                openSettings();
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
+
+    private void openSettings() {
+
+        View menuSettings = findViewById(R.id.action_settings); // SAME ID AS MENU ID
+
+        String[] names = {"Settings","Rate Us on Play Store","Join Us on Facebook","Share this App with Friends","Disclaimers","About Us","Feedback","Logout"};
+
+        ListPopupWindow popupWindow = new ListPopupWindow(MainActivity.this);
+        popupWindow.setAnchorView(menuSettings);
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(names));
+
+        int width = getResources().getDisplayMetrics().widthPixels;
+        int height =  getResources().getDisplayMetrics().heightPixels;
+
+        popupWindow.setWidth((int)(width/1.5));
+        popupWindow.setHeight((int) (height / 1.5));
+        popupWindow.setModal(true);
+        popupWindow.setAdapter(new SettingsAdapter(MainActivity.this,arrayList));
+        popupWindow.show();
+    }
+
+
+
+    //end of main class
 }
