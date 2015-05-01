@@ -30,15 +30,12 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:padding="16dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:gravity="center"
-
-            android:text="Buttons"
-            android:textColor="#fff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+      <ImageView
+          android:background="@drawable/audio_play"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>
