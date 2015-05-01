@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 
 import com.twotoasters.jazzylistview.JazzyListView;
 import com.twotoasters.jazzylistview.effects.CurlEffect;
@@ -14,10 +15,16 @@ import com.twotoasters.jazzylistview.effects.CurlEffect;
 
 public class SubActivity extends ActionBarActivity {
 
+    private ImageView left,right,playAudio;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_main);
+
+        left = (ImageView)findViewById(R.id.left);
+        right = (ImageView)findViewById(R.id.right);
+        playAudio = (ImageView)findViewById(R.id.playAudio);
 
     }
 

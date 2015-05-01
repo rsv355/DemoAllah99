@@ -35,10 +35,12 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/left"
             android:background="@drawable/left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
       <ImageView
+          android:id="@+id/playAudio"
           android:layout_marginLeft="20dp"
           android:layout_marginRight="20dp"
           android:background="@drawable/audio_play"
@@ -46,6 +48,7 @@
           android:layout_height="wrap_content" />
 
         <ImageView
+            android:id="@+id/right"
             android:background="@drawable/right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
